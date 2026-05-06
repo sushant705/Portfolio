@@ -60,6 +60,42 @@ $env:CLOUDFLARE_API_TOKEN="your_cloudflare_api_token"
 bun run deploy
 ```
 
+## Deploy From GitHub Using Cloudflare Dashboard
+
+Use this if the project is already pushed to GitHub and you want Cloudflare to deploy automatically whenever you push.
+
+1. Open Cloudflare dashboard.
+
+2. Go to Workers & Pages.
+
+3. Select Create application.
+
+4. Choose Import a repository.
+
+5. Connect GitHub and select your portfolio repository.
+
+6. Configure the Worker:
+
+```text
+Project/Worker name: sushant-portfolio
+Production branch: main
+Root directory: /
+Build command: npm ci && npm run build
+Deploy command: npx wrangler deploy --config dist/server/wrangler.json
+```
+
+Do not commit `bun.lockb` for the Cloudflare build. This repo uses `package-lock.json` for deployment so Cloudflare installs with npm instead of trying `bun install --frozen-lockfile`.
+
+If your GitHub branch is `master`, use `master` instead of `main`.
+
+The Worker name must match the `name` field in `wrangler.jsonc`.
+
+7. Save and deploy.
+
+8. After the build finishes, Cloudflare will give you a `workers.dev` URL.
+
+9. Every future GitHub push to the production branch will rebuild and redeploy the site.
+
 ## Publish On Your Own Domain
 
 Use this when you want a real domain in the browser, like `yourdomain.in`.
