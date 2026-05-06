@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sushant-portfolio",
+  "compatibility_date": "2025-09-24",
+  "compatibility_flags": ["nodejs_compat"],
+  // After your domain is active in Cloudflare, uncomment and replace this
+  // with your real domain, for example "sushantgupta.in".
+  // "routes": [{ "pattern": "yourdomain.in", "custom_domain": true }],
+  "main": "@tanstack/react-start/server-entry",
+}
