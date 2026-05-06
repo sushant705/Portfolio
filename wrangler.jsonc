@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "sushant-portfolio",
+  "name": "portfolio",
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
   // After your domain is active in Cloudflare, uncomment and replace this
